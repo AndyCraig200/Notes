@@ -1,0 +1,8 @@
+If pipenv screws up then remove virtual environment
+
+rm -r /Users/andy.c/.local/share/virtualenvs/testing_audio-24drlI_E
+pipenv install
+
+Add python configuration: virtualenv/bin/python
+
+Add args in configutration

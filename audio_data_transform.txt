@@ -1,0 +1,21 @@
+
+pipenv install
+pipenv shell
+
+Had to remove -m from command, probably something to do with the .py after main. -m means module, so it should either be run -m main or run main.py
+
+//local - with data in 0 folder (all data)
+pipenv run python main.py --spectrogram-gcs-folder 0 --env=dev  --output-filename-prefix smoke/augmented --output-path-folder andy_dev --local-test
+
+//local - with data in test folder (~5 files)
+pipenv run python main.py --spectrogram-gcs-folder 1 --env=dev  --output-filename-prefix smoke/augmented --output-path-folder andy_dev --local-test
+audio-smoke-co-dev/andy_dev_test_data
+
+//dataflow --> Worked 
+pipenv run python main.py --spectrogram-gcs-folder 0 --env=dev  --output-filename-prefix smoke/augmented --output-path-folder andy_dev --runner DataflowRunner
+
+{appropriate_prefix}
+gs://audio-smoke-co-dev/andy_dev/smoke/augmented
+
+##Create gcloud Authentication credentials
+gcloud auth application-default login
